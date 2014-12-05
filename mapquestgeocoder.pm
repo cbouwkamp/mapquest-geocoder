@@ -1,14 +1,16 @@
 #!/usr/bin/perl 
-package mqgeocoder;
+package Mqgeocoder;
+use LWP::Simple qw(get);
+use JSON qw(from_json);
 
 sub new{
     my $class = shift;
     my $self = {
-        _city => undef,
-        _state => undef,
-        _zip => undef,
-        _address => undef,
-        _key => undef    
+        _city => shift,
+        _state => shift,
+        _zip => shift,
+        _address => shift,
+        _key => shift    
     };
     bless $self, $class;
     return $self;
@@ -68,5 +70,27 @@ sub setKey{
 sub getKey {
     my( $self ) = @_;
     return $self->{_key};
+}
+sub geocode{
+    my( $self ) = @_;
+    $latitude = undef;
+    $longitude = undef;
+    $geocodeQuality = undef;
+    $key = $self->{_key};
+    $address = $self->{_address};
+    $state = $self->{_state};
+    $city = $self->{_city};
+    $zip = $self->{_zip};
+    my $url = 'http://www.mapquestapi.com/geocoding/v1/address?key='. $key . '&inFormat=kvp&outFormat=json&location='. $address . ', '. $city . ', '. $state . ' '.$zip.'&thumbMaps=false';
+     print $url;
+     my $content = from_json(get($url));
+    foreach my $latlng (@{ $content->{results}})
+    {
+        $latitude = $latlng->{locations}[0]{displayLatLng}{lat};
+        $longitude = $latlng->{locations}[0]{displayLatLng}{lng};
+        $geocodeQuality = $latlng->{locations}[0]{geocodeQualityCode};
+    }
+    %values = ("latitude", $latitude, "longitude", $longitude, "quality", $geocodeQuality);
+    return %values;
 }
 1;
