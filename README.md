@@ -15,7 +15,7 @@ You can obtain your API key here: http://developer.mapquest.com/web/products/ope
 ####How to use
 Example code:
 '''
-#create new Mqgeocoder object
+\#create new Mqgeocoder object
 $coordinates = new Mqgeocoder();
 
 #Set variables. Address, City, State, and KEY are required. Zip is optional, but can lead to inaccurate results
@@ -28,7 +28,7 @@ $coordinates->setKey("Your Key Here");
 
 $coordinates->setState("state");
 
-#Returned data is in key array. 
+\#Returned data is in key array. 
 my %geocoded = $coordinates->geocode();
 
 print $geocoded{"latitude"} . "\n";
