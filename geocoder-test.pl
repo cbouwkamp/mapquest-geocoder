@@ -5,8 +5,9 @@ use mapquestgeocoder;
 $coorTest = new Mqgeocoder();
 $coorTest->setCity("Broken Arrow");
 $coorTest->setAddress("21521 E 32nd St");
-$coorTest->setKey("xxxxxxxxxx");
+$coorTest->setKey("Fmjtd%7Cluurn90821%2C2x%3Do5-9wtl90");
 $coorTest->setState("OK");
-$coorTest->setZip("74014");
+
+
 my %latitude = $coorTest->geocode();
 print $latitude{"latitude"};

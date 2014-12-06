@@ -81,6 +81,22 @@ sub geocode{
     $state = $self->{_state};
     $city = $self->{_city};
     $zip = $self->{_zip};
+    if(!defined $city){
+        die "Error: A city is required to geocode $!";
+    }
+    if(!defined $state){
+        die "Error: A state is required to geocode $!";
+    }
+    if(!defined $address){
+        die "Error: An address is required to geocode $!";
+    }
+    if(!defined $key){
+        die "Error: A mapquest api key is required to geocode $!";
+    }
+    if(!defined $zip){
+        warn "Zip code is not required, but not using a zip code can lead to inaccurate geocoding.";
+        $zip = " ";
+    }
     my $url = 'http://www.mapquestapi.com/geocoding/v1/address?key='. $key . '&inFormat=kvp&outFormat=json&location='. $address . ', '. $city . ', '. $state . ' '.$zip.'&thumbMaps=false';
      print $url;
      my $content = from_json(get($url));
