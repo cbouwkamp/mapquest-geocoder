@@ -98,7 +98,6 @@ sub geocode{
         $zip = " ";
     }
     my $url = 'http://www.mapquestapi.com/geocoding/v1/address?key='. $key . '&inFormat=kvp&outFormat=json&location='. $address . ', '. $city . ', '. $state . ' '.$zip.'&thumbMaps=false';
-     print $url;
      my $content = from_json(get($url));
     foreach my $latlng (@{ $content->{results}})
     {
