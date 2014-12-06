@@ -18,14 +18,11 @@ Example code:
 #create new Mqgeocoder object
 $coordinates = new Mqgeocoder();
 
-#Set variables. Address, City, State, and KEY are required. Zip is optional, but can lead to inaccurate results
-
+#Set variables. Address, City, State, and KEY are required. Zip is optional, but can lead to 
+#inaccurate results
 $coordinates->setCity("city");
-
 $coordinates->setAddress("your address");
-
 $coordinates->setKey("Your Key Here");
-
 $coordinates->setState("state");
 
 #Returned data is in key array. 
