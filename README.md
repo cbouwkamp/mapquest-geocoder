@@ -4,15 +4,15 @@ mapquest-geocoder
 A simple perl geocoder that runs on the mapquest API. Input the city, state, zip, and address and the module returns the latitude, longitude, and quality from mapquest.
 
 ####Requirements
-######Installed Perl modules required are:
+######**Installed Perl modules required are:**
 LWP::Simple
 JSON
 
-######Map Quest API Key
+######**Map Quest API Key**
 You can obtain your API key here: http://developer.mapquest.com/web/products/open/geocoding-service
 
 
-####How to use
+####**How to use**
 Example code:
 ```
 #create new Mqgeocoder object
@@ -33,5 +33,5 @@ print $geocoded{"longitude"} . "\n";
 print $geocoded{"quality"} . "\n";
 ```
 
-###Check what the mapquest returned quality means here
+###**Check what the mapquest returned quality means here**
 http://www.mapquestapi.com/geocoding/geocodequality.html
