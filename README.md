@@ -19,11 +19,16 @@ Example code:
 $coordinates = new Mqgeocoder();
 
 ######Set variables. Address, City, State, and KEY are required. Zip is optional, but can lead to inaccurate results
+
 $coordinates->setCity("Broken Arrow");
+
 $coordinates->setAddress("21521 E 32nd St");
-$coordinates->setKey("Fmjtd%7Cluurn90821%2C2x%3Do5-9wtl90");
+
+$coordinates->setKey("Your Key Here");
+
 $coordinates->setState("OK");
 
+######Returned data is in key array. 
 my %geocoded = $coordinates->geocode();
 
 print $geocoded{"latitude"} . "\n";
@@ -31,4 +36,5 @@ print $geocoded{"longitude"} . "\n";
 print $geocoded{"quality"} . "\n";
 
 
+###Check what the mapquest returned quality means here
 http://www.mapquestapi.com/geocoding/geocodequality.html
