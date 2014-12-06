@@ -20,13 +20,13 @@ $coordinates = new Mqgeocoder();
 
 ######Set variables. Address, City, State, and KEY are required. Zip is optional, but can lead to inaccurate results
 
-$coordinates->setCity("Broken Arrow");
+$coordinates->setCity("city");
 
-$coordinates->setAddress("21521 E 32nd St");
+$coordinates->setAddress("your address");
 
 $coordinates->setKey("Your Key Here");
 
-$coordinates->setState("OK");
+$coordinates->setState("state");
 
 ######Returned data is in key array. 
 my %geocoded = $coordinates->geocode();
